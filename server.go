@@ -68,7 +68,7 @@ func Register(instance, service, domain string, port int, text []string, iface *
 			return nil, fmt.Errorf("Could not determine host")
 		}
 	}
-	entry.HostName = fmt.Sprintf("%s.", trimDot(entry.HostName))
+	entry.HostName = fmt.Sprintf("%s.%s.", trimDot(entry.HostName), trimDot(entry.Domain))
 
 	addrs, err := net.LookupIP(entry.HostName)
 	if err != nil {
